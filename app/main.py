@@ -7,7 +7,7 @@ def format_linter_error(error: Dict[str, Any]) -> Dict[str, Any]:
         "line": error.get("line_number"),
         "column": error.get("column_number"),
         "message": error.get("text"),
-        "source": "flake8"
+        "source": "flake8",
     }
 
 
@@ -15,7 +15,7 @@ def format_single_linter_file(file_path: str, errors: List[Dict[str, Any]]) -> D
     return {
         "path": file_path,
         "errors": [format_linter_error(error) for error in errors],
-        "status": "passed" if not errors else "failed"
+        "status": "passed" if not errors else "failed",
     }
 
 
